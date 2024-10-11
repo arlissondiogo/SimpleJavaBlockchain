@@ -38,7 +38,7 @@ Se preferir baixar o repositório inteiro, siga os passos abaixo:
 
 1. No repositório, clique no botão **Code**.
 2. Copie o link fornecido (se preferir baixar via Git) ou clique em **Download ZIP** para baixar um arquivo compactado com todo o repositório.
-3. Navegue até uma pasta, selecione o caminho do arquivo, escreva cmd e aperte enter.
+3. Após copiar o link, navegue até uma pasta, selecione o caminho do arquivo, escreva cmd e aperte enter.
 4. Quando o cmd abrir, digite:
 
 ```bash
