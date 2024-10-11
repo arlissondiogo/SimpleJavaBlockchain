@@ -16,6 +16,41 @@
 
 - Em caso de dúvida, acesse essa seção: [Execução de código em outras IDE's](#executando-o-código-em-outras-ide).
 
+## 🛠️ baixando o arquivo do github
+
+Siga os passos abaixo para baixar um arquivo do GitHub:
+
+1. **Acesse o repositório**  
+   Vá até o repositório do GitHub onde o arquivo que deseja baixar está localizado. Você pode fazer isso clicando no link do repositório ou buscando o nome no [GitHub](https://github.com).
+
+2. **Navegue até o arquivo**  
+   Dentro do repositório, navegue até a pasta onde o arquivo está localizado. Isso pode ser feito clicando nas pastas e arquivos dentro do repositório.
+
+3. **Baixe o arquivo**  
+   Para baixar o arquivo diretamente, siga os passos:
+   - Clique no nome do arquivo.
+   - No canto superior direito da página do arquivo, clique no botão **Raw**.
+   - Após a visualização do arquivo em formato bruto, clique com o botão direito do mouse e selecione **Salvar como** para baixá-lo.
+
+### Alternativa: Clonando o repositório inteiro
+
+Se preferir baixar o repositório inteiro, siga os passos abaixo:
+
+1. No repositório, clique no botão **Code**.
+2. Copie o link fornecido (se preferir baixar via Git) ou clique em **Download ZIP** para baixar um arquivo compactado com todo o repositório.
+3. Navegue até uma pasta, selecione o caminho do arquivo, escreva cmd e aperte enter.
+4. Quando o cmd abrir, digite:
+
+```bash
+   git clone https://github.com/arlissondiogo/SimpleJavaBlockchain.git 
+```
+
+![Caminho do arquivo](caminho.png)
+
+![Escreva cmd](digite.png)
+
+![git clone](clone.png)
+
 ## 🧩 Alguns conceitos importantes
 
 - Blockchain: Estrutura de dados onde blocos conectados mantêm um histórico imutável de transações.
