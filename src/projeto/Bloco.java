@@ -1,6 +1,5 @@
 package projeto;
 
-// Classe Bloco
 import java.security.MessageDigest;
 import java.util.List;
 
@@ -9,20 +8,30 @@ public class Bloco {
     private final List<Transacao> dados;
     private final long timestamp;
     private final String hash;
+    private int nonce;
 
-    public Bloco(String hashAnterior, List<Transacao> dados) {
+    public Bloco(String hashAnterior, List<Transacao> dados, int dificuldade) {
         this.hashAnterior = hashAnterior;
         this.dados = dados;
         this.timestamp = System.currentTimeMillis();
-        // Calcula o hash do bloco
-        this.hash = calcularHash();
+        this.hash = minerarBloco(dificuldade);
+    }
+
+    private String minerarBloco(int dificuldade) {
+        String prefixoDificuldade = "0".repeat(dificuldade);
+        String hashCalculado;
+        do {
+            nonce++;
+            hashCalculado = calcularHash();
+        } while (!hashCalculado.substring(0, dificuldade).equals(prefixoDificuldade));
+        return hashCalculado;
     }
 
     public String calcularHash() {
         try {
-            StringBuilder registro = new StringBuilder(hashAnterior + Long.toString(timestamp));
+            StringBuilder registro = new StringBuilder(hashAnterior + timestamp + nonce);
             for (Transacao transacao : dados) {
-                registro.append(transacao.toString()); // Converte a transação em String
+                registro.append(transacao.toString());
             }
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] valorHash = digest.digest(registro.toString().getBytes("UTF-8"));
@@ -46,12 +55,7 @@ public class Bloco {
         return hash;
     }
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-
     public List<Transacao> getDados() {
         return dados;
     }
-
 }

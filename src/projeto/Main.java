@@ -7,22 +7,40 @@ public class Main {
     public static void main(String[] args) {
         Blockchain blockchain = new Blockchain();
         
-        System.out.println("Iniciando Blockchain...");
-        
-        // Primeira lista de transações
-        List<Transacao> transacoes1 = new ArrayList<>();
-        transacoes1.add(new Transacao("Grayson", "Wayne", 10));
-        blockchain.adicionarBloco(transacoes1); // Adiciona o primeiro bloco
-        
-        // Segunda lista de transações
-        List<Transacao> transacoes2 = new ArrayList<>(); // Declarando transacoes2
-        transacoes2.add(new Transacao("Drake", "Todd", 4));
-        blockchain.adicionarBloco(transacoes2); // Adiciona o segundo bloco
+        String enderecoRemetente = GeraEndereco.gerarEnderecoAleatorio();
+        String enderecoDestinatario = GeraEndereco.gerarEnderecoAleatorio();
 
-        System.out.println("Criando bloco com as transações pendentes...");
+        List<Transacao> transacoes = new ArrayList<>();
         
-        System.out.println("Blockchain válida? " + blockchain.cadeiaValida());
+        transacoes.add(new Transacao(enderecoRemetente, enderecoDestinatario, 100));
+
+        transacoes.add(new Transacao(enderecoDestinatario, enderecoRemetente, 50));
+
+        System.out.println("Adicionando transações válidas...");
+        blockchain.adicionarBloco(transacoes);
         
+        System.out.println("TRANSAÇÃO VÁLIDA:");
         blockchain.imprimirCadeia();
+
+        blockchain.exibirHistoricoTransacoes(enderecoRemetente);
+        blockchain.exibirHistoricoTransacoes(enderecoDestinatario);
+
+        String enderecoInvalido = "EnderecoInvalido123"; 
+        Transacao transacaoFalsa = null;
+        
+        try {
+            transacaoFalsa = new Transacao(enderecoInvalido, enderecoDestinatario, 200);
+            System.out.println("\nTentando adicionar transação falsa...");
+            List<Transacao> transacoesFalsas = new ArrayList<>();
+            transacoesFalsas.add(transacaoFalsa);
+            blockchain.adicionarBloco(transacoesFalsas); 
+
+            System.out.println("TRANSAÇÃO INVÁLIDA:");
+            blockchain.imprimirCadeia();
+        } catch (IllegalArgumentException e) {
+            System.out.println("\nErro ao adicionar transação falsa: " + e.getMessage());
+        }
+
+        System.out.println("A cadeia é válida? " + blockchain.cadeiaValida());
     }
 }

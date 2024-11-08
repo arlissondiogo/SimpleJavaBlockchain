@@ -5,6 +5,18 @@ public class Transacao {
     private final String remetente;
     private final String destinatario;
 
+    public Transacao(String remetente, String destinatario, long quantia) {
+        if (!Validador.validarEndereco(remetente) || !Validador.validarEndereco(destinatario)) {
+            throw new IllegalArgumentException("Endereço de remetente ou destinatário inválido.");
+        }
+        
+        if (quantia <= 0) {
+            throw new IllegalArgumentException("A quantia deve ser maior que zero.");
+        }
+        this.remetente = remetente;
+        this.destinatario = destinatario;
+        this.quantia = quantia;
+    }
 
     public String getDestinatario() {
         return destinatario;
@@ -13,15 +25,9 @@ public class Transacao {
     public String getRemetente() {
         return remetente;
     }
-    
+
     public long getQuantia() {
         return quantia;
-    }
-
-    public Transacao(String remetente, String destinatario, long quantia) {
-        this.remetente = remetente;
-        this.destinatario = destinatario;
-        this.quantia = quantia;
     }
 
     @Override
@@ -29,6 +35,5 @@ public class Transacao {
         return "Remetente = " + remetente + "\n" +
                "Destinatário = " + destinatario + "\n" +
                "Quantia = " + quantia;
-}
-
+    }
 }
