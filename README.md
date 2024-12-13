@@ -1,297 +1,277 @@
-<h1 align="center"> 📜 Documentação do Projeto de Blockchain em Java </h1>
+# 🔗 Blockchain simples
 
-# Índice
-- [Índice](#índice)
-  - [Introdução](#introdução)
-  - [🛠️ Pré-requisitos](#️-pré-requisitos)
-  - [🛠️ baixando o arquivo do github](#️-baixando-o-arquivo-do-github)
-    - [Alternativa: Clonando o repositório inteiro](#alternativa-clonando-o-repositório-inteiro)
-  - [🧩 Alguns conceitos importantes](#-alguns-conceitos-importantes)
-  - [Estrutura do Código](#estrutura-do-código)
-    - [1. Transacao 💸](#1-transacao-)
-    - [2. Bloco 🧱](#2-bloco-)
-    - [3. Blockchain 🔗](#3-blockchain-)
-    - [4. Main 🖥️](#4-main-️)
-    - [5. Gera Endereços 📍](#5-gera-endereços)
-    - [6. Validador ✅](#6-validador)
-  - [🚀 Como Executar](#-como-executar)
-  - [Executando o código em outras IDE](#executando-o-código-em-outras-ide)
-    - [**Visual Studio Code** 💻](#visual-studio-code-)
-    - [**IntelliJ IDEA** 🧩](#intellij-idea-)
-    - [**Eclipse** 🌒](#eclipse-)
-  - [Detalhes Técnicos](#detalhes-técnicos)
-  - [Conclusão 📚](#conclusão-)
+## 🌟 Visão Geral
 
-## Introdução
+A blockchain simples desenvolvida é um projeto que simula os princípios fundamentais de uma blockchain, oferecendo uma implementação didática e clara dos conceitos básicos de cadeias de blocos usando javascript.
 
-<p align="center"><i> Este projeto implementa uma versão simples de blockchain em Java, com foco na criação de transações, mineração de blocos e verificação da autenticidade da cadeia. Ele permite o armazenamento e validação de transações, garantindo que os dados da blockchain sejam imutáveis e seguros. A implementação utiliza criptografia SHA-256 para a validação de cada bloco, criando uma estrutura robusta contra fraudes. O projeto foi desenvolvido com fins educativos e como parte do Programa de Bolsas da Compass UOL - Blockchain</i></p>
+## 🛠 Tecnologias Utilizadas
 
-## 🛠️ Pré-requisitos
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?logo=javascript)
+![Node.js](https://img.shields.io/badge/Node.js-14+-green?logo=node.js)
+![Crypto](https://img.shields.io/badge/Crypto-Nativo-blue)
 
-- A versão utilizada do windows foi a 10, versões anteriores podem ficar ultrapassadas para a instalação de algumas IDE's;
+## 🔗 Link do Projeto
 
-- >Os tutoriais de instalação são direcionados a *windows*, caso utilize *outro sistema operacional* é necessário procurar outros tutoriais.
+[Repositório GitHub](https://github.com/arlissondiogo/blockchain.git)
 
-- **Java Development Kit (JDK)**: Este projeto foi desenvolvido utilizando a versão Java Zulu 17.52.17-ca-jdk17.0.12-win_x64. Para compilar e executar o código, certifique-se de que esta ou uma versão compatível do JDK esteja instalada.
+## 🧾 Licença
 
-- **IDE**: Você pode usar qualquer IDE de sua preferência para rodar o projeto, como o [IntelliJ IDEA](https://www.youtube.com/watch?v=2D5Ww-m6auw "tutorial de instação do IntelliJ IDEA"), [Eclipse](https://www.youtube.com/watch?v=KWGIaWh71q4 "tutorial de instalação do Eclipse"), [Visual Studio Code](https://www.youtube.com/watch?v=QT-YWT1-YI4 "tutorial de instalação VS code") ou o próprio terminal com `javac` e `java` para compilar e executar o código.
+Distribuído sob a Licença MIT.
 
-- Em caso de dúvida, acesse essa seção: [Execução de código em outras IDE's](#executando-o-código-em-outras-ide).
+## 🚀 Configuração Rápida
 
-## 🛠️ baixando o arquivo do Github
+### Pré-requisitos
 
-Siga os passos abaixo para baixar um arquivo do GitHub:
+- [Node.js](https://nodejs.org/) (v14 ou superior)
+- npm (v6 ou superior)
 
-1. **Acesse o repositório**  
-   Vá até o repositório do GitHub onde o arquivo que deseja baixar está localizado. Você pode fazer isso clicando no [link](https://github.com/arlissondiogo/SimpleJavaBlockchain) do repositório ou buscando o nome `arlissondiogo/SimpleJavaBlockchain` no [GitHub](https://github.com).
-
-2. **Navegue até o arquivo**  
-   Dentro do repositório, navegue até a pasta onde o arquivo está localizado. Isso pode ser feito clicando nas pastas e arquivos dentro do repositório.
-
-3. **Baixe o arquivo**  
-   Para baixar o arquivo diretamente, siga os passos:
-   - Clique no nome do arquivo.
-   - No canto superior direito da página do arquivo, clique no botão **Raw**.
-   - Após a visualização do arquivo em formato bruto, clique com o botão direito do mouse e selecione **Salvar como** para baixá-lo.
-
-### Alternativa: Clonando o repositório inteiro
-
-Se preferir baixar o repositório inteiro, siga os passos abaixo:
-
-1. No repositório, clique no botão **Code**.
-2. Copie o link fornecido (se preferir baixar via Git) ou clique em **Download ZIP** para baixar um arquivo compactado com todo o repositório.
-3. Após copiar o link, navegue até uma pasta, selecione o caminho do arquivo, escreva cmd e aperte enter.
-4. Quando o cmd abrir, digite:
+### Instalação
 
 ```bash
-   git clone https://github.com/arlissondiogo/SimpleJavaBlockchain.git 
+# Clonar o repositório
+git clone https://github.com/arlissondiogo/blockchain.git
+
+# Navegar para o diretório do projeto
+cd blockchain
+
+# Instalar dependências
+npm install
+
+# Executar o projeto
+npm run dev
 ```
 
-![Caminho do arquivo](caminho.png)
-
-![Escreva cmd](digite.png)
-
-![git clone](clone.png)
-
-## 🧩 Alguns conceitos importantes
-
-Blockchain: Estrutura de dados onde blocos de transações são encadeados em sequência, mantendo um registro imutável de todas as transações. Neste código, a classe `Blockchain` gerencia uma lista de blocos (`cadeia`) e registra todas as transações realizadas, organizadas por endereço (`historicoTransacoes`). É possível adicionar blocos, validar a cadeia e exibir o histórico de transações de cada endereço.
-
-Bloco: Cada bloco contém uma lista de transações, o hash do bloco anterior (para estabelecer a cadeia), um hash gerado a partir dos dados e um número `nonce` para controle de dificuldade de mineração. No código, a classe `Bloco` calcula e mantém seu próprio hash, vinculando-se ao bloco anterior através do `hashAnterior`.
-
-Hash: Um hash é uma sequência de caracteres criptograficamente única, gerada com base nos dados do bloco. No contexto do blockchain, o hash assegura a integridade dos dados, pois qualquer modificação nos dados do bloco alteraria seu hash. A classe `Bloco` usa o algoritmo SHA-256 para calcular o hash a partir do conteúdo do bloco.
-
-Transação: Representa uma operação entre um remetente e um destinatário, onde uma certa quantia é transferida. A classe `Transacao` encapsula essas informações e inclui métodos para garantir a validade da transação. Além disso, o código inclui um sistema de validação para verificar se os endereços são válidos e se a quantia transferida é maior que zero.
-
-Endereço: Cada transação é identificada por endereços do remetente e destinatário. No código, o `GeraEndereco` cria endereços exclusivos e válidos para identificar os participantes das transações.
-
-Validação de Cadeia: A integridade da cadeia de blocos é verificada comparando os hashes dos blocos consecutivos, garantindo que nenhuma alteração tenha sido feita nos blocos. No código, o método `cadeiaValida` na classe `Blockchain` percorre os blocos e valida a consistência dos hashes.
-
-## Estrutura do Código
-
-O projeto contém as seguintes classes:
-
-### 1. Transacao 💸
-
-A classe Transacao modela uma transação com os atributos de remetente, destinatário e quantia.
-
-Construtor:
-
-```java
-public Transacao(String remetente, String destinatario, long quantia): Inicializa uma nova transação com um remetente, destinatário e a quantia transferida.
-```
-
-Métodos:
-
-```java
-public String getDestinatario(): Retorna o destinatário da transação.
-public String getRemetente(): Retorna o remetente da transação.
-public long getQuantia(): Retorna a quantia envolvida na transação.
-@Override public String toString(): Retorna uma representação textual da transação, incluindo remetente, destinatário e quantia.
-```
-
-### 2. Bloco 🧱
-
-A classe Bloco armazena transações e calcula o hash do bloco com base nas transações e no hash anterior, garantindo a imutabilidade da cadeia.
-
-Construtor:
-
-```java
-public Bloco(String hashAnterior, List<Transacao> dados): Inicializa um novo bloco, definindo o hash anterior e as transações contidas.
-```
-
-Métodos:
-
-```java
-private String minerarBloco(int dificuldade): Realiza a mineração do bloco, ajustando o nonce até que o hash atenda aos requisitos de dificuldade.
-public String calcularHash(): Calcula e retorna o hash do bloco, baseado no hash anterior, timestamp, nonce e nas transações.
-public String getHashAnterior(): Retorna o hash do bloco anterior.
-public String getHash(): Retorna o hash do bloco atual.
-public List<Transacao> getDados(): Retorna a lista de transações armazenadas no bloco.
-```
-
-### 3. Blockchain 🔗
-
-A classe Blockchain é responsável por gerenciar a cadeia de blocos e verificar sua integridade.
-
-Construtor:
-
-```java
-- public Blockchain(): Inicializa uma nova blockchain e adiciona o bloco gênese.
-```
-
-Métodos:
-
-```java
-private Bloco criarBlocoGênese(): Cria e retorna o bloco gênese com o hash anterior definido como "0".
-public void adicionarBloco(List<Transacao> transacoes): Adiciona um novo bloco à cadeia com as transações fornecidas e atualiza o histórico de transações.
-public boolean cadeiaValida(): Verifica a integridade da cadeia de blocos, recalculando os hashes e comparando-os com os originais. Retorna true se a cadeia for válida e false caso contrário.
-public void imprimirCadeia(): Imprime os detalhes de cada bloco na cadeia, incluindo hash, hash anterior e transações.
-public void exibirHistoricoTransacoes(String endereco): Exibe o histórico de transações para um endereço específico.
-```
-
-### 4. Main 🖥️
-
-A classe Main contém o ponto de entrada do programa, onde a blockchain é inicializada, transações são adicionadas e a integridade da cadeia é verificada.
-
-No Main, são realizadas operações como:
-
-* Geração de endereços aleatórios
-* Adição de transações válidas e tentativa de adição de transações inválidas
-* Impressão da cadeia de blocos
-* Verificação da validade da cadeia
-
-### 5. Gera Endereços 📍
-
-A classe `GeraEndereco` é responsável por gerar endereços únicos para identificar os participantes das transações.
-
-Métodos:
-
-```java
-public static String gerarEnderecoAleatorio(): Gera um endereço aleatório único que segue um padrão específico e retorna o endereço gerado.
-```
-
-### 6. Validador ✅
-
-A classe `Validador` realiza a validação de endereços e transações, assegurando que as informações atendam aos requisitos do sistema.
-Métodos:
-
-```java
-public static boolean validarEndereco(String endereco): Verifica se o endereço segue o formato válido.
-public static boolean validarTransacao(Transacao transacao): Valida se os endereços e a quantia da transação atendem aos requisitos de segurança.
-```
-
-## 🚀 Como Executar
-
-1. **Instale o Java Zulu 17**:
-
-   - Baixe e instale o JDK da versão Zulu 17.52.17-ca-jdk17.0.12 ou mais recente a partir do site oficial da Azul: [Azul Zulu Downloads](https://www.azul.com/downloads/#zulu "Área de download");
-   - Certifique-se de que as variáveis `JAVA_HOME` e `PATH` estão apontando para o diretório correto do JDK;
-   - Para evitar problemas um tutorial é sempre bem vindo, então clique nesse [link](https://www.youtube.com/watch?v=QekeJBShCy4&pp=ygUSY29tbyBiYWl4YXIgamRrIDE3 "tutorial para baixar e instalar o jdk") para saber mais.
-
-2. **Compilação**:
-
-Abra o terminal e navegue até o diretório do projeto onde está a pasta `src`. *Exemplo:*
+## 📂 Estrutura do projeto
 
 ```bash
-cd C:\Users\User\Desktop\projetoBitcoin\projetoBitcoin
+blockchainjs/
+│
+├── src/
+│   ├── blockchain.js      # Lógica principal da blockchain
+│   ├── bloco.js           # Classe de criação de blocos
+│   ├── geraEndereco.js    # Gerador de endereços
+│   ├── main.js            # Ponto de entrada
+│   ├── transacao.js       # Gerenciamento de transações
+│   └── validador.js       # Validações de segurança
+│
+├── package.json           # Configurações do projeto
+└── README.md              # Documentação
+└── LICENSE                # Licença
 ```
 
-Compile todos os arquivos .java na pasta src/projetoBitcoin com o seguinte comando:
+## ✨ Características Principais
 
-```bash
-for %f in (src/projetoBitcoin/*.java) do javac -d bin %f
+### 🧱 Estrutura do bloco
+
+- Bloco é personalizado com:
+  - Timestamp
+  - Dados de transação
+  - Nonce
+  - Cálculo de hash
+  - Prova de trabalho (Proof of Work)
+  - Hash único
+  - Hash do bloco anterior
+  - Mineração.
+
+### 💸 Sistema de transações
+
+- **Geração de endereços aleatórios**: Utiliza uma função para gerar endereços exclusivos (começando com `BAT` seguido por uma sequência aleatória de caracteres hexadecimais) que podem ser usados como remetentes ou destinatários nas transações.
+
+- **Validação das transações**: Antes de qualquer transação ser adicionada à blockchain, ela é validada para garantir que:
+  - os endereços de remetente e destinatário são válidos, seguindo o formato `BATxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+  - o remetente possui saldo suficiente para cobrir o valor da transação + taxas.
+  - a quantia da transação deve ser maior que zero.
+  - as taxas sejam calculadas com base em uma porcentagem e não podem ser inferiores a 0.1 para garantir a viabilidade da mineração.
+
+- **Rastreamento do histórico das transações**: O sistema mantém um histórico de todas as transações realizadas. Cada bloco contém uma lista de transações e o blockchain armazena esse histórico para auditorias futuras.
+  - **Auditoria das transações**: Permite o rastreamento das transações válidas, o valor total transacionado, e o total de taxas pagas, ajudando a garantir a integridade da rede.
+
+- **Taxas de transação**:
+  - As transações podem ter uma taxa associada, que serve para recompensar os mineradores que processam os blocos.
+  - As taxas são dinâmicas e podem ser ajustadas conforme a carga da rede, incentivando os mineradores a priorizarem transações com taxas mais altas.
+
+- **Manejo de erros e transações inválidas**:
+  - Transações inválidas (como uma tentativa de enviar mais do que o saldo disponível) são bloqueadas e o erro é registrado.
+  - Transações com endereços inválidos ou com valores inadequados (quantia <= 0 ou taxas abaixo do mínimo) também são rejeitadas.
+
+- **Recompensa ao minerador**:
+  - O minerador que consegue adicionar um novo bloco válido à blockchain recebe uma recompensa por seu trabalho de mineração, que é uma combinação de um valor fixo (35) e as taxas de transação (caso não seja definida, será de 0.1).
+
+- **Processo de mineração e blocos**:
+  - As transações são agrupadas em blocos, e a mineradora precisa realizar o processo de prova de trabalho (PoW) para minerar um novo bloco. O bloco só é adicionado à cadeia se o hash do bloco cumprir com a dificuldade da mineração (ou seja, o hash deve começar com uma quantidade específica de zeros).
+
+### Componentes Principais
+
+#### 1. Classe `Blockchain`
+
+- Gerenciamento da cadeia de blocos
+- Validação e processamento de transações
+- Propagação de blocos entre nós
+- Resolução de forks
+- Controle de saldos
+- Auditoria de transações
+
+#### 2. Classe `Bloco`
+
+- Mineração com prova de trabalho (Proof of Work)
+- Geração de hash único
+- Armazenamento de transações
+- Cálculo e validação de hash
+- Controle de dificuldade de mineração
+
+#### 3. Classe `Transacao`
+
+- Criação de transações seguras
+- Validação rigorosa de endereços
+- Verificação de saldo
+- Atribuição de taxas de transação
+
+#### 4. Classe `Validador`
+
+- Validação de endereços de remetente e destinatário
+- Verificação da integridade de transações
+- Validação de quantias e taxas
+
+#### 5. Classe `GeraEndereco`
+
+- Geração de endereços aleatórios
+- Formato padronizado (prefixo 'BAT')
+- Geração de endereços de 40 caracteres alfanuméricos, com o prefixo "BAT"
+
+## 📝 Relatório de Implementação
+
+### 1. Propagação de Blocos e Transações
+
+- **Métodos**:
+  - `propagarBloco()`: Envia bloco para todos os nós
+  - `receberBloco()`: Recebe e valida blocos de outros nós
+
+### 2. Resolução de Conflitos (Forks)
+
+- **Método**: `resolverForks()`
+  - Quando dois blocos conflitantes são minerados, cada nó mantém sua versão da blockchain. O método `resolverForks()` compara o comprimento das cadeias de blocos e seleciona a cadeia mais longa como a versão válida.
+  - Se um nó detecta que sua cadeia é mais curta, ele irá reverter para a cadeia mais longa e adicionar os blocos que estavam ausentes.
+
+### 3. Controle de Saldos
+
+- **Funcionalidades**:
+  - `temSaldoSuficiente()`: Verifica saldo antes da transação
+  - `atualizarSaldos()`: Atualiza saldos após transação
+
+### 4. Taxas de Transação e Recompensas
+
+- **Cálculo de Recompensa**:
+  - Recompensa fixa de 35 unidades
+  - Soma das taxas de transação
+
+## 📄 Exemplos de Uso
+
+Este exemplo mostra como você pode usar o projeto para criar uma blockchain, adicionar transações e minerar blocos.
+
+### 1. **Inicializando a blockchain e criando nós**
+
+Primeiro, criamos uma blockchain principal e dois nós adicionais para simular a rede descentralizada.
+
+```javascript
+const GeraEndereco = require('./src/geraEndereco');
+const Transacao = require('./src/transacao');
+const Blockchain = require('./src/blockchain');
+
+function main() {
+    // Criar a blockchain principal
+    const blockchainPrincipal = new Blockchain();
+
+    // Criar dois nós para simular a rede descentralizada
+    const no1 = new Blockchain();
+    const no2 = new Blockchain();
+
+    // Adicionar nós à blockchain principal e entre si
+    blockchainPrincipal.adicionarNo(no1);
+    blockchainPrincipal.adicionarNo(no2);
+    no1.adicionarNo(blockchainPrincipal);
+    no1.adicionarNo(no2);
+    no2.adicionarNo(blockchainPrincipal);
+    no2.adicionarNo(no1);
+
+    // Exibir o estado inicial da blockchain
+    console.log('===== ESTADO INICIAL =====');
+    blockchainPrincipal.exibirSaldos();
+}
+main();
+
 ```
 
->Nota: Se aparecer uma mensagem de erro indicando que um arquivo não foi encontrado, verifique se você está no diretório correto e se os arquivos `.java` existem na pasta src/projetoBitcoin.
+### 2. **Criar endereços aleatórios e definir saldos**
 
-3. **Execute o projeto**:
+Em seguida, geramos alguns endereços aleatórios para os participantes da rede e definimos seus saldos iniciais.
 
-Após a compilação bem-sucedida, execute o programa principal com o seguinte comando:
+```javascript
+const minerador = GeraEndereco.gerarEnderecoAleatorio();
+const wayne = GeraEndereco.gerarEnderecoAleatorio();
+const richard = GeraEndereco.gerarEnderecoAleatorio();
+const todd = GeraEndereco.gerarEnderecoAleatorio();
 
-   ```bash
-    java -cp bin projetoBitcoin.Main
-   ```
+// Definir saldos iniciais
+blockchainPrincipal.saldos[minerador] = 0;
+blockchainPrincipal.saldos[wayne] = 1000;
+blockchainPrincipal.saldos[richard] = 500;
+blockchainPrincipal.saldos[todd] = 250;
 
-> Dica: Verifique se o diretório `bin` foi criado corretamente após a compilação, contendo os arquivos `.class`.
+console.log('===== ESTADO INICIAL =====');
+blockchainPrincipal.exibirSaldos();
+```
 
-## Executando o código em outras IDE
+### 3. **Adicionar transações e minerar blocos**
 
-### **Visual Studio Code** 💻
+Agora, vamos adicionar transações entre os endereços e minerar blocos.
 
-1. **Instalação**:
-   - Baixe e instale o [Visual Studio Code](https://code.visualstudio.com/).
-   - Instale a extensão **"Java Extension Pack"** para suporte ao Java.
+```javascript
+try {
+    // Criar transações
+    const transacoes1 = [
+        new Transacao(wayne, richard, 100, 0.5),
+        new Transacao(richard, todd, 50, 0.2)
+    ];
 
-2. **Configurando o Projeto**:
-   - Crie uma nova pasta para o projeto e copie os arquivos `.java` para essa pasta.
-   - Abra o Visual Studio Code e selecione **"File" > "Open Folder..."** para abrir a pasta do projeto.
+    // Adicionar o bloco com as transações
+    blockchainPrincipal.adicionarBloco(transacoes1, minerador);
 
-3. **Compilação e Execução**:
-   - Abra o terminal integrado (`Ctrl + `).
-   - Navegue até o diretório do projeto se necessário.
-   - Compile todos os arquivos com:
-  
-    ```bash
-    javac -d bin src/projetoBitcoin/*.java
-    ```
+    // Criar mais transações
+    const transacoes2 = [
+        new Transacao(todd, wayne, 25, 0.1)
+    ];
 
-   - Execute o programa principal:
+    // Adicionar o segundo bloco
+    blockchainPrincipal.adicionarBloco(transacoes2, minerador);
 
-    ```bash
-    java -cp bin projetoBitcoin.Main
-    ```
+    console.log('\n===== APÓS TRANSAÇÕES =====');
+    blockchainPrincipal.exibirSaldos();
 
-### **IntelliJ IDEA** 🧩
+} catch (error) {
+    console.error('Erro ao adicionar transações:', error);
+}
+```
 
-1. **Instalação**:
-   - Baixe e instale o [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
-   - Durante a instalação, escolha a opção para instalar o JDK se ainda não o tiver.
+### 4. **Testar transação inválida**
 
-2. **Criando um Novo Projeto**:
-   - Abra o IntelliJ e selecione **"New Project"**.
-   - Selecione **"Java"**, configure o JDK e clique em **"Next"**.
-   - Escolha **"Create project from existing sources"** e localize a pasta do projeto.
+Você pode também testar a validação da blockchain, onde tentamos adicionar uma transação inválida (saldo insuficiente, por exemplo).
 
-3. **Compilação e Execução**:
-   - Clique com o botão direito na classe `Main` e selecione **"Run 'Main.main()'"**.
-   - A saída será exibida na janela de console na parte inferior.
+```javascript
+console.log('\n===== TESTE DE TRANSAÇÃO INVÁLIDA =====');
+try {
+    // Criar uma transação inválida (saldo insuficiente)
+    const transacaoInvalida = new Transacao(richard, wayne, 1000); // Valor maior que o saldo
+    blockchainPrincipal.adicionarBloco([transacaoInvalida], minerador);
+} catch (error) {
+    console.error(`Transação inválida bloqueada: ${error.message}`);
+}
+```
 
-### **Eclipse** 🌒
+### 5. **Exibir a cadeia de blocos**
 
-1. **Instalação**:
-   - Baixe e instale o [Eclipse IDE](https://www.eclipse.org/downloads/).
-   - Durante a instalação, certifique-se de que o JDK está configurado corretamente.
+Após as transações, podemos exibir a cadeia de blocos para ver o estado final da blockchain.
 
-2. **Criando um Novo Projeto**:
-   - Abra o Eclipse e selecione **"File" > "New" > "Java Project"**.
-   - Dê um nome ao projeto e clique em **"Finish"**.
-   - Copie os arquivos `.java` para a pasta `src` do projeto.
-
-3. **Compilação e Execução**:
-   - Clique com o botão direito na classe `Main` e selecione **"Run As" > "Java Application"**.
-   - A saída será exibida na janela de console na parte inferior
-
-## Detalhes Técnicos
-
-* Validação da Cadeia: O método `cadeiaValida` percorre a cadeia de blocos para verificar se algum bloco foi alterado, recalculando os hashes e comparando-os com os originais. Ele verifica a integridade de cada bloco em relação ao anterior, garantindo que a cadeia permaneça imutável.
-
-* Algoritmo de Hashing: Utiliza a função `SHA-256` para gerar um hash único para cada bloco, assegurando a integridade dos dados e tornando a falsificação de blocos extremamente difícil.
-
-* Mineração: No processo de criação de novos blocos, a função `minerarBloco` ajusta o nonce do bloco até que o hash gerado atenda a uma condição específica de dificuldade, como iniciar com uma sequência de zeros. Esse mecanismo é usado para garantir o consenso e a segurança na adição de novos blocos.
-
-* Estrutura de Dados:
-
-   * Cada bloco armazena uma lista de transações (`List<Transacao>`), criando um registro das operações.
-   * Os blocos são encadeados através do campo `hashAnterior`, que assegura a continuidade e a imutabilidade da cadeia.
-   * O histórico de transações é mantido em um `Map<String, List<Transacao>>`, que permite consultar todas as transações associadas a um determinado endereço.
-
-* Validação e Tratamento de Erros: A classe `Validador` realiza validações de endereços e transações, assegurando que apenas transações válidas sejam registradas. Além disso, o método `adicionarBloco` implementa tratamento básico para impedir a adição de transações inválidas, lançando exceções em caso de erro.
-
-* Exibição Detalhada: O método imprimirCadeia exibe informações sobre cada bloco, incluindo hash, hash anterior, e todas as transações associadas. O método `exibirHistoricoTransacoes` também permite visualizar o histórico de transações para endereços específicos.
-
-* Exemplo de Uso: A classe `Main` demonstra a criação da blockchain, a adição de transações válidas e inválidas e a verificação de validade da cadeia. Ela serve como ponto de entrada para explorar o funcionamento do sistema.
-
-## Conclusão 📚
-
-Este projeto demonstra uma implementação de blockchain básica com criação de transações, mineração de blocos e validação da cadeia. É um exemplo útil para entender os conceitos fundamentais de como uma blockchain garante segurança, integridade e imutabilidade dos dados.
+```javascript
+// Exibir a cadeia de blocos
+blockchainPrincipal.imprimirCadeia();
+```
